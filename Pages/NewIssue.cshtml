@@ -1,0 +1,43 @@
+@page
+@model NewIssueModel
+@{
+    ViewData["Title"] = "New Issue";
+}
+<section class="w-80 bg-light row mt-2 p-5 rounded">
+    <form method="post" class="bg-white p-3 border rounded">
+        <h2>@ViewData["Title"]</h2>
+
+        <div class="form-group my-2">
+            <label asp-for="Issue.Name"></label>
+            <input asp-for="Issue.Name" required class="form-control">
+        </div>
+
+        <div class="form-group my-2">
+            <label asp-for="Issue.Status"></label>
+            <select asp-for="Issue.Status" class="form-control">
+                <option value="Todo">Todo</option>
+                <option value="Doing">Doing</option>
+                <option value="Done">Done</option>
+            </select>
+        </div>
+
+        <div class="form-group my-2">
+            <label asp-for="Issue.Priority"></label>
+            <select asp-for="Issue.Priority" class="form-control">
+                <option value="Low">Low</option>
+                <option value="Normal">Normal</option>
+                <option value="High">High</option>
+            </select>
+        </div>
+
+        <div class="form-group my-2">
+            <label asp-for="Issue.Description"></label>
+            <textarea asp-for="Issue.Description" class="form-control" rows="3"></textarea>
+        </div>
+
+        <div class="row mx-auto">
+            <input type="submit" value="Submit" class="btn btn-primary btn-sm mt-2">
+            <a href="/Log" class="btn btn-secondary btn-sm mt-2">Back</a>
+        </div>
+    </form>
+</section>

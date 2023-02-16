@@ -1,6 +1,7 @@
-using WebApp.BLL;
+using WebApp.Data.Interfaces;
+using WebApp.Models;
 
-namespace WebApp.DAL;
+namespace WebApp.Data.Repositories;
 
 public class BaseRepository<T> : IRepository<T> where T : class, IGuid {
     protected List<T> _list = new();

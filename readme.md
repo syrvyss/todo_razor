@@ -1,6 +1,6 @@
 # todo_razor
 
-parking_project is a C# implementation of a parking lot.
+todo_razor is a c# implementation of an issue board, akin to GitHub issues or Jira
 
 ## Installation (macOS)
 

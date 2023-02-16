@@ -1,6 +1,6 @@
-using WebApp.DAL;
+using WebApp.Data.Interfaces;
 
-namespace WebApp.BLL;
+namespace WebApp.Models.Controller;
 
 public class IssueController {
     private readonly IIssueRepository _issueRepository;

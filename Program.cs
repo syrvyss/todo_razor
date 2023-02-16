@@ -1,4 +1,5 @@
 using WebApp.Data.Interfaces;
+using WebApp.Models.Controller;
 
 // is this bad?
 using WebApp.Data.Repositories;
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IIssueRepository, IssueRepository>();
+builder.Services.AddSingleton<IssueController>();
 
 var app = builder.Build();
 

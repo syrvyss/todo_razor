@@ -9,10 +9,12 @@ public class IssueController {
         _issueRepository = issueRepository;
     }
 
-    public void New(Priority priority) {
+    public void New(Status status, Priority priority, string name, string description) {
         Issue issue = new() {
-            Status = Status.Todo,
-            Priority = priority
+            Status = status,
+            Priority = priority,
+            Name = name,
+            Description = description
         };
 
         _issueRepository.Create(issue);

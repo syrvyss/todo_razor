@@ -20,5 +20,9 @@ public class LogModel : PageModel {
     public void OnGet() {
         Issues = _issueRepository.Get();
     }
+
+    public void OnPost() {
+        Issues = _issueRepository.Get();
+    }
 }
 

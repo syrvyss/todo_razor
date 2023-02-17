@@ -10,7 +10,7 @@
 <a href="/NewIssue" class="btn btn-primary">New Issue</a>
 
 <section class="w-80 bg-light row mt-2">
-    <article class="col-sm m-2 border rounded bg-white">
+    <article class="col-md m-2 border rounded bg-white">
         <h3>TODO</h3>
         @foreach(var issue in Model.Issues) {
             <div class="card mx-2 bg-light">
@@ -19,7 +19,7 @@
         }
     </article>
 
-    <article class="col-sm m-2 border rounded bg-white">
+    <article class="col-md m-2 border rounded bg-white">
         <h3>Doing</h3>
         @foreach(var issue in Model.Issues) {
             <div class="card mx-2 bg-light">
@@ -28,7 +28,7 @@
         }
     </article>
 
-    <article class="col-sm m-2 border rounded bg-white">
+    <article class="col-md m-2 border rounded bg-white">
         <h3>Done</h3>
         @foreach(var issue in Model.Issues) {
             <div class="card mx-2 bg-light">

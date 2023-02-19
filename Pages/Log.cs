@@ -26,4 +26,3 @@ public class LogModel : PageModel {
         Issues = _issueRepository.Get();
     }
 }
-

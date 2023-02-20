@@ -12,7 +12,8 @@ public class EditIssueModel : PageModel {
     private readonly ILogger<IndexModel> _logger;
     private readonly IIssueRepository _issueRepository;
 
-    [BindProperty] public Issue? Issue { get; set; }
+    [BindProperty]
+    public Issue? CurrentIssue { get; set; }
 
     public EditIssueModel(ILogger<IndexModel> logger, IIssueRepository issueRepository) {
         _logger = logger;
@@ -20,21 +21,21 @@ public class EditIssueModel : PageModel {
     }
 
     public IActionResult OnGet(Guid id) {
-        Issue = _issueRepository.Get().FirstOrDefault(x => x.Id == id);
+        CurrentIssue = _issueRepository.Get().FirstOrDefault(x => x.Id == id);
 
-        if (Issue == null) {
+        if (CurrentIssue == null) {
             return RedirectToPage("/Error");
         }
 
         return Page();
     }
 
-    public IActionResult OnPost() {
+    public IActionResult OnPost(Issue currentIssue) {
         if (!ModelState.IsValid) {
             return Page();
         }
 
-        _issueRepository.Update(Issue.Id, Issue);
+        _issueRepository.Update(currentIssue);
         return RedirectToPage("/Log");
-}
+    }
 }

@@ -1,5 +1,5 @@
 namespace WebApp.Models;
 
 public interface IGuid {
-    public Guid Id { get; }
+    public Guid? Id { get; }
 }

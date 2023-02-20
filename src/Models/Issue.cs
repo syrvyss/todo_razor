@@ -4,7 +4,7 @@ namespace WebApp.Models;
 
 public class Issue : IGuid {
     public Guid? Id { get; init; }
-    public DateTime? Created { get; }
+    public DateTime? Created { get; init; }
     public required Status Status { get; set; }
     public required Priority Priority { get; set; }
 

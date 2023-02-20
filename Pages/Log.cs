@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApp.Data.Interfaces;
 using WebApp.Models;
-
-// is this bad?
 using WebApp.Models;
 
 namespace WebApp.Pages;

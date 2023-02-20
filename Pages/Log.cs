@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApp.Data.Interfaces;
+using WebApp.Models;
 
 // is this bad?
 using WebApp.Models;
@@ -20,5 +21,8 @@ public class LogModel : PageModel {
     public void OnGet() {
         Issues = _issueRepository.Get();
     }
-}
 
+    public void OnPost() {
+        Issues = _issueRepository.Get();
+    }
+}

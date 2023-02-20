@@ -1,28 +1,18 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace WebApp.Models;
 
 public class Issue : IGuid {
-    public Guid Id { get; } = Guid.NewGuid();
+    public Guid? Id { get; init; }
     public DateTime Created { get; } = DateTime.Now;
     public required Status Status { get; set; }
     public required Priority Priority { get; set; }
 
-    public string Name {
-        get { return this.Name; }
-        set {
-            if (value.Length > 20) {
-                Name = value;
-            }
-        }
-    }
+    [MaxLength(20)] public string Name { get; set; }
 
-    public string Description {
-        get { return this.Description; }
-        set {
-            if (value.Length > 100) {
-                Description = value;
-            }
-        }
-    }
+    [MaxLength(150)] public string Description { get; set; }
+
+    public Issue() => Id ??= Guid.NewGuid();
 }
 
 public enum Priority {

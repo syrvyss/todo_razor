@@ -10,30 +10,63 @@
 <a href="/NewIssue" class="btn btn-primary">New Issue</a>
 
 <section class="w-80 bg-light row mt-2">
-    <article class="col-sm m-2 border rounded bg-white">
-        <h3>TODO</h3>
-        @foreach(var issue in Model.Issues) {
-            <div class="card mx-2 bg-light">
-                <p>@issue</p>
-            </div>
+    <article class="col-md m-2 py-2 border rounded bg-white">
+        <h3>To do</h3>
+        @foreach(var issue in Model.Issues.Where(x => x.Status == Models.Status.Todo)) {
+            <a href="/EditIssue/@issue.Id" class="d-block card w-80 mx-2 mb-2 px-1 bg-light">
+                <p class="p-2 m-0">@issue.Name</p>
+                @switch (issue.Priority) {
+                    case Models.Priority.Low:
+                        <p class="text-white bg-success rounded m-1 mb-2 px-2">Low</p>
+                        break;
+                    case Models.Priority.Normal:
+                        <p class="text-white bg-warning rounded m-1 mb-2 px-2">Normal</p>
+                        break;
+                    case Models.Priority.High:
+                        <p class="text-white bg-danger rounded m-1 mb-2 px-2">High</p>
+                        break;
+                }
+            </a>
         }
     </article>
 
-    <article class="col-sm m-2 border rounded bg-white">
+    <article class="col-md m-2 py-2 border rounded bg-white">
         <h3>Doing</h3>
-        @foreach(var issue in Model.Issues) {
-            <div class="card mx-2 bg-light">
-                <p>@issue</p>
-            </div>
+        @foreach(var issue in Model.Issues.Where(x => x.Status == Models.Status.Doing)) {
+            <a href="/EditIssue/@issue.Id" class="card w-80 mx-2 mb-2 px-1 bg-light">
+                <p class="p-2 m-0">@issue.Name</p>
+                @switch (issue.Priority) {
+                    case Models.Priority.Low:
+                    <p class="text-white bg-success rounded m-1 mb-2 px-2">Low</p>
+                    break;
+                    case Models.Priority.Normal:
+                    <p class="text-white bg-warning rounded m-1 mb-2 px-2">Normal</p>
+                    break;
+                    case Models.Priority.High:
+                    <p class="text-white bg-danger rounded m-1 mb-2 px-2">High</p>
+                    break;
+                }
+            </a>
         }
     </article>
 
-    <article class="col-sm m-2 border rounded bg-white">
+    <article class="col-md m-2 py-2 border rounded bg-white">
         <h3>Done</h3>
-        @foreach(var issue in Model.Issues) {
-            <div class="card mx-2 bg-light">
-                <p>@issue</p>
-            </div>
+        @foreach(var issue in Model.Issues.Where(x => x.Status == Models.Status.Done)) {
+            <a href="/EditIssue/@issue.Id" class="card w-80 mx-2 mb-2 px-1 bg-light">
+                <p class="p-2 m-0">@issue.Name</p>
+                @switch (issue.Priority) {
+                    case Models.Priority.Low:
+                    <p class="text-white bg-success rounded m-1 mb-2 px-2">Low</p>
+                    break;
+                    case Models.Priority.Normal:
+                    <p class="text-white bg-warning rounded m-1 mb-2 px-2">Normal</p>
+                    break;
+                    case Models.Priority.High:
+                    <p class="text-white bg-danger rounded m-1 mb-2 px-2">High</p>
+                    break;
+                }
+            </a>
         }
     </article>
 </section>

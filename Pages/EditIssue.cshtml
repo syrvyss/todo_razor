@@ -1,0 +1,46 @@
+@page "{id:Guid}"
+@model EditIssueModel
+@{
+    ViewData["Title"] = "Edit Issue";
+}
+
+<section class="w-80 bg-light row mt-2 p-5 rounded">
+    <form method="post" class="bg-white p-3 border rounded">
+        <h2>@ViewData["Title"]</h2>
+
+        <input type="hidden" asp-for="CurrentIssue.Id" />
+
+        <div class="form-group my-2">
+            <label asp-for="CurrentIssue.Name"></label>
+            <input asp-for="CurrentIssue.Name" required class="form-control">
+        </div>
+    
+        <div class="form-group my-2">
+            <label asp-for="CurrentIssue.Status"></label>
+            <select asp-for="CurrentIssue.Status" class="form-control">
+                <option value="Todo" name="CurrentIssue.Status.Todo">Todo</option>
+                <option value="Doing" name="CurrentIssue.Status.Doing">Doing</option>
+                <option value="Done" name="CurrentIssue.Status.Done">Done</option>
+            </select>
+        </div>
+
+        <div class="form-group my-2">
+            <label asp-for="CurrentIssue.Priority"></label>
+            <select asp-for="CurrentIssue.Priority" class="form-control">
+                <option value="Low" name="CurrentIssue.Priority.Low">Low</option>
+                <option value="Normal" name="CurrentIssue.Priority.Normal">Normal</option>
+                <option value="High" name="CurrentIssue.Priority.High">High</option>
+            </select>
+        </div>
+
+        <div class="form-group my-2">
+            <label asp-for="CurrentIssue.Description"></label>
+            <textarea asp-for="CurrentIssue.Description" class="form-control" rows="3"></textarea>
+        </div>
+
+        <div class="row mx-auto">
+            <input type="submit" value="Submit" class="btn btn-primary btn-sm mt-2">
+            <a href="/Log" class="btn btn-secondary btn-sm mt-2">Back</a>
+        </div>
+    </form>
+</section>

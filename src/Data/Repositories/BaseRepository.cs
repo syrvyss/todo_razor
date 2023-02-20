@@ -10,12 +10,12 @@ public class BaseRepository<T> : IRepository<T> where T : class, IGuid {
         _list.Add(thing);
     }
 
-    public void Delete(string id) {
-        _list.RemoveAll(x => x.Id.ToString() == id);
+    public void Delete(Guid id) {
+        _list.RemoveAll(x => x.Id == id);
     }
 
-    public T? Read(string id) {
-        T? item = _list.Find(x => x.Id.ToString() == id);
+    public T? Read(Guid id) {
+        T? item = _list.Find(x => x.Id == id);
         return item;
     }
 
@@ -23,8 +23,11 @@ public class BaseRepository<T> : IRepository<T> where T : class, IGuid {
         return _list;
     }
 
-    public void Update(string id, T thing) {
-        T? item = _list.Find(x => x.Id.ToString() == id);
-        item = thing;
+    public void Update(T thing) {
+        int index = _list.FindIndex(x => x.Id == thing.Id);
+
+        if (index != -1) {
+            _list[index] = thing;
+        }
     }
 }

@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApp.Data.Interfaces;
 using WebApp.Data.Repositories;
-
-// is this okay??
 using WebApp.Models;
 using WebApp.Models.Controller;
 
@@ -25,12 +23,12 @@ public class NewIssueModel : PageModel {
     }
 
     public IActionResult OnPost(Issue Issue) {
-        // add error handling
         if (ModelState.IsValid) {
             _issueRepository.Create(Issue);
 
             return RedirectToPage("/Log");
         }
+
         return Page();
     }
 }

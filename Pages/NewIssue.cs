@@ -28,6 +28,7 @@ public class NewIssueModel : PageModel {
         // add error handling
         if (ModelState.IsValid) {
             _issueRepository.Create(Issue);
+
             return RedirectToPage("/Log");
         }
         return Page();

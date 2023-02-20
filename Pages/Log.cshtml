@@ -33,7 +33,7 @@
     <article class="col-md m-2 py-2 border rounded bg-white">
         <h3>Doing</h3>
         @foreach(var issue in Model.Issues.Where(x => x.Status == Models.Status.Doing)) {
-            <div class="card w-80 mx-2 mb-2 px-1 bg-light">
+            <a href="/EditIssue/@issue.Id" class="card w-80 mx-2 mb-2 px-1 bg-light">
                 <p class="p-2 m-0">@issue.Name</p>
                 @switch (issue.Priority) {
                     case Models.Priority.Low:
@@ -46,14 +46,14 @@
                     <p class="text-white bg-danger rounded m-1 mb-2 px-2">High</p>
                     break;
                 }
-            </div>
+            </a>
         }
     </article>
 
     <article class="col-md m-2 py-2 border rounded bg-white">
         <h3>Done</h3>
         @foreach(var issue in Model.Issues.Where(x => x.Status == Models.Status.Done)) {
-            <div class="card w-80 mx-2 mb-2 px-1 bg-light">
+            <a href="/EditIssue/@issue.Id" class="card w-80 mx-2 mb-2 px-1 bg-light">
                 <p class="p-2 m-0">@issue.Name</p>
                 @switch (issue.Priority) {
                     case Models.Priority.Low:
@@ -66,7 +66,7 @@
                     <p class="text-white bg-danger rounded m-1 mb-2 px-2">High</p>
                     break;
                 }
-            </div>
+            </a>
         }
     </article>
 </section>

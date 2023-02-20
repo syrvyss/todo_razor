@@ -5,5 +5,5 @@ public interface IRepository<T> {
     public void Delete(Guid id);
     public T? Read(Guid id);
     public List<T> Get();
-    public void Update(Guid id, T thing);
+    public void Update(T thing);
 }

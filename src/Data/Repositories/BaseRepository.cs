@@ -23,8 +23,11 @@ public class BaseRepository<T> : IRepository<T> where T : class, IGuid {
         return _list;
     }
 
-    public void Update(Guid id, T thing) {
-        T? item = _list.SingleOrDefault(x => x.Id == id);
-        item = thing;
+    public void Update(T thing) {
+        int index = _list.FindIndex(x => x.Id == thing.Id);
+
+        if (index != -1) {
+            _list[index] = thing;
+        }
     }
 }

@@ -6,12 +6,12 @@ using WebApp.Models;
 
 namespace WebApp.Pages;
 
-public class LogModel : PageModel {
-    private readonly ILogger<LogModel> _logger;
+public class IssueBoardModel : PageModel {
+    private readonly ILogger<IssueBoardModel> _logger;
     private readonly IIssueRepository _issueRepository;
     public List<Issue> Issues { get; set; } = new();
 
-    public LogModel(ILogger<LogModel> logger, IIssueRepository issueRepository) {
+    public IssueBoardModel(ILogger<IssueBoardModel> logger, IIssueRepository issueRepository) {
         _logger = logger;
         _issueRepository = issueRepository;
     }

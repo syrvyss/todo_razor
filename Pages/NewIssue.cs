@@ -26,7 +26,7 @@ public class NewIssueModel : PageModel {
         if (ModelState.IsValid) {
             _issueRepository.Create(Issue);
 
-            return RedirectToPage("/Log");
+            return RedirectToPage("/IssueBoard");
         }
 
         return Page();

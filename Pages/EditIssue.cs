@@ -35,6 +35,6 @@ public class EditIssueModel : PageModel {
         }
 
         _issueRepository.Update(currentIssue);
-        return RedirectToPage("/Log");
+        return RedirectToPage("/IssueBoard");
     }
 }

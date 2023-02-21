@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApp.Data.Interfaces;
 using WebApp.Models;
-using WebApp.Models;
 
 namespace WebApp.Pages;
 

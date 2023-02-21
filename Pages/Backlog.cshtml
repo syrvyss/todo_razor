@@ -1,0 +1,54 @@
+﻿@page
+@model BacklogModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Backlog</h1>
+<p>View all issues.</p>
+
+<a href="/NewIssue" class="btn btn-primary mb-2">New Issue</a>
+
+<section class="w-80 bg-light row rounded">
+    <article class="m-2 py-2 border rounded bg-white">
+        <h2>Issues: </h2>
+        @if (Model.Issues.Count == 0)
+        {
+            <p class="text-center text-muted">So empty...</p>
+        }
+
+        @foreach (Issue issue in Model.Issues)
+        {
+            <a href="/EditIssue/@issue.Id" class="mx-2 card w-80 d-block px-1 bg-light d-flex text-decoration-none mb-2">
+                <p class="pt-2 ps-3 m-0 text-dark">@issue.Name</p>
+                <div class="d-flex p-2">
+                    @switch (issue.Status)
+                    {
+                        case Models.Status.Todo:
+                            <p class="text-white bg-success rounded m-1 px-2">Todo</p>
+                            break;
+                        case Models.Status.Doing:
+                            <p class="text-white bg-warning rounded m-1 px-2">Doing</p>
+                            break;
+                        case Models.Status.Done:
+                            <p class="text-white bg-danger rounded m-1 px-2">Done</p>
+                            break;
+                    }
+
+                    @switch (issue.Priority)
+                    {
+                        case Models.Priority.Low:
+                            <p class="text-white bg-success rounded m-1 px-2">Low</p>
+                            break;
+                        case Models.Priority.Normal:
+                            <p class="text-white bg-warning rounded m-1 px-2">Normal</p>
+                            break;
+                        case Models.Priority.High:
+                            <p class="text-white bg-danger rounded m-1 px-2">High</p>
+                            break;
+                    }
+                </div>
+            </a>
+        }
+    </article>
+</section>

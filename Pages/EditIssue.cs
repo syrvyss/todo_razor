@@ -37,4 +37,9 @@ public class EditIssueModel : PageModel {
         _issueRepository.Update(currentIssue);
         return RedirectToPage("/IssueBoard");
     }
+
+    public IActionResult OnPostDelete() {
+        _issueRepository.Delete(CurrentIssue.Id.Value);
+        return RedirectToPage("/IssueBoard");
+    }
 }

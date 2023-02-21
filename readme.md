@@ -1,6 +1,6 @@
 # todo_razor
 
-todo_razor is a c# implementation of an issue board, akin to GitHub issues or Jira
+Dzhira is a c# implementation of an issue board, akin to GitHub issues or Jira
 
 ## Installation (macOS)
 
@@ -42,7 +42,7 @@ dotnet test
 - [x] Issue board page
 - [x] User added features
 - [x] Update issue support
-- [ ] Better Error page
+- [x] Better Error page
 - [x] Unit tests
 - [ ] Integrate SQL Server
 

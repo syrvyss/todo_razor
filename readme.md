@@ -40,10 +40,10 @@ dotnet test
 ## TODO
 
 - [x] Issue board page
-- [ ] User added features
-- [ ] Update issue support
+- [x] User added features
+- [x] Update issue support
 - [ ] Better Error page
-- [ ] Unit tests
+- [x] Unit tests
 - [ ] Integrate SQL Server
 
 

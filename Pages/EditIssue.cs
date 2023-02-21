@@ -12,8 +12,7 @@ public class EditIssueModel : PageModel {
     private readonly ILogger<IndexModel> _logger;
     private readonly IIssueRepository _issueRepository;
 
-    [BindProperty]
-    public Issue? CurrentIssue { get; set; }
+    [BindProperty] public Issue? CurrentIssue { get; set; }
 
     public EditIssueModel(ILogger<IndexModel> logger, IIssueRepository issueRepository) {
         _logger = logger;
@@ -36,6 +35,6 @@ public class EditIssueModel : PageModel {
         }
 
         _issueRepository.Update(currentIssue);
-        return RedirectToPage("/Log");
+        return RedirectToPage("/IssueBoard");
     }
 }

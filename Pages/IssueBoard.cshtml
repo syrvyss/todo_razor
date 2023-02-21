@@ -1,20 +1,20 @@
 ﻿@page
-@model LogModel
+@model IssueBoardModel
 @{
-    ViewData["Title"] = "Log Policy";
+    ViewData["Title"] = "Issue Board";
 }
 
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's Log policy.</p>
+<p>Use this page to view your issue board.</p>
 <a href="/NewIssue" class="btn btn-primary">New Issue</a>
 
-<section class="w-80 bg-light row mt-2">
+<section class="w-80 bg-light row mt-2 rounded">
     <article class="col-md m-2 py-2 border rounded bg-white">
         <h3>To do</h3>
         @foreach(var issue in Model.Issues.Where(x => x.Status == Models.Status.Todo)) {
-            <a href="/EditIssue/@issue.Id" class="d-block card w-80 mx-2 mb-2 px-1 bg-light">
-                <p class="p-2 m-0">@issue.Name</p>
+            <a href="/EditIssue/@issue.Id" class="d-block card w-80 mx-2 mb-2 px-1 bg-light text-decoration-none">
+                <p class="p-2 m-0 text-dark">@issue.Name</p>
                 @switch (issue.Priority) {
                     case Models.Priority.Low:
                         <p class="text-white bg-success rounded m-1 mb-2 px-2">Low</p>
@@ -33,8 +33,8 @@
     <article class="col-md m-2 py-2 border rounded bg-white">
         <h3>Doing</h3>
         @foreach(var issue in Model.Issues.Where(x => x.Status == Models.Status.Doing)) {
-            <a href="/EditIssue/@issue.Id" class="card w-80 mx-2 mb-2 px-1 bg-light">
-                <p class="p-2 m-0">@issue.Name</p>
+            <a href="/EditIssue/@issue.Id" class="d-block card w-80 mx-2 mb-2 px-1 bg-light text-decoration-none">
+                <p class="p-2 m-0 text-dark">@issue.Name</p>
                 @switch (issue.Priority) {
                     case Models.Priority.Low:
                     <p class="text-white bg-success rounded m-1 mb-2 px-2">Low</p>
@@ -53,8 +53,8 @@
     <article class="col-md m-2 py-2 border rounded bg-white">
         <h3>Done</h3>
         @foreach(var issue in Model.Issues.Where(x => x.Status == Models.Status.Done)) {
-            <a href="/EditIssue/@issue.Id" class="card w-80 mx-2 mb-2 px-1 bg-light">
-                <p class="p-2 m-0">@issue.Name</p>
+            <a href="/EditIssue/@issue.Id" class="d-block card w-80 mx-2 mb-2 px-1 bg-light text-decoration-none">
+                <p class="p-2 m-0 text-dark">@issue.Name</p>
                 @switch (issue.Priority) {
                     case Models.Priority.Low:
                     <p class="text-white bg-success rounded m-1 mb-2 px-2">Low</p>

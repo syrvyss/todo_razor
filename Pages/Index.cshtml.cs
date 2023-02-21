@@ -8,7 +8,7 @@ public class IndexModel : PageModel {
     private readonly IIssueRepository _issueRepository;
 
     public List<Issue> Issues { get; set; } = new();
-    
+
     public IndexModel(ILogger<IndexModel> logger, IIssueRepository issueRepository) {
         _logger = logger;
         _issueRepository = issueRepository;

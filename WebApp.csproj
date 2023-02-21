@@ -27,6 +27,15 @@
     <Compile Update="tests\WebApp.Test\Usings.cs">
       <Link>tests\WebApp.Test2\Usings.cs</Link>
     </Compile>
+    <Compile Update="Pages\NewIssue.cs">
+      <DependentUpon>NewIssue.cshtml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\IssueBoard.cs">
+      <DependentUpon>IssueBoard.cshtml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\EditIssue.cs">
+      <DependentUpon>EditIssue.cshtml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

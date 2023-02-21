@@ -11,6 +11,11 @@
 
 <section class="w-80 bg-light row mt-2 rounded">
     <article class="m-2 p-2 border rounded bg-white">
+        @if (Model.Issues.Count == 0)
+        {
+            <p class="text-center text-muted">So empty...</p>
+        }
+        
         @foreach (Issue issue in Model.Issues)
         {
             <a href="/EditIssue/@issue.Id" class="m-2 card w-80 bg-light d-flex text-decoration-none">

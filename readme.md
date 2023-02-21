@@ -43,7 +43,7 @@ dotnet test
 - [x] User added features
 - [x] Update issue support
 - [ ] Better Error page
-- [ ] Unit tests
+- [x] Unit tests
 - [ ] Integrate SQL Server
 
 

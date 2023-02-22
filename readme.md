@@ -1,4 +1,4 @@
-# todo_razor
+# Dzhira
 
 Dzhira is a c# implementation of an issue board, akin to GitHub issues or Jira
 
@@ -45,8 +45,6 @@ dotnet test
 - [x] Better Error page
 - [x] Unit tests
 - [ ] Integrate SQL Server
-
-
 
 ## License
 

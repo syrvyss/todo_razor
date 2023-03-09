@@ -1,7 +1,6 @@
-using WebApp.Data.Interfaces;
-
 namespace WebApp.Models.Controller;
 
+/*
 public class IssueController {
     private readonly IIssueRepository _issueRepository;
 
@@ -20,3 +19,4 @@ public class IssueController {
         _issueRepository.Create(issue);
     }
 }
+*/

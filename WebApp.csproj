@@ -4,17 +4,19 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="tests" />
+    <Folder Include="tests"/>
   </ItemGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="tests\WebApp.Test\obj\project.assets.json" />
-    <_ContentIncludedByDefault Remove="tests\WebApp.Test\obj\project.packagespec.json" />
-    <_ContentIncludedByDefault Remove="tests\WebApp.Test\obj\WebApp.Test.csproj.nuget.dgspec.json" />
-    <_ContentIncludedByDefault Remove="tests\WebApp.Test\packages.config" />
+    <_ContentIncludedByDefault Remove="tests\WebApp.Test\obj\project.assets.json"/>
+    <_ContentIncludedByDefault Remove="tests\WebApp.Test\obj\project.packagespec.json"/>
+    <_ContentIncludedByDefault Remove="tests\WebApp.Test\obj\WebApp.Test.csproj.nuget.dgspec.json"/>
+    <_ContentIncludedByDefault Remove="tests\WebApp.Test\packages.config"/>
   </ItemGroup>
 
   <ItemGroup>
@@ -39,7 +41,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="MongoDB.Driver" Version="2.19.0"/>
+    <PackageReference Include="xunit" Version="2.4.2"/>
   </ItemGroup>
 
 </Project>

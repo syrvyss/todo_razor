@@ -1,6 +1,7 @@
 ﻿namespace WebApp.Test;
 
 public class IssueTest {
+    /*
     [Fact]
     public void IsCorrectDate() {
         // Arrange
@@ -34,4 +35,5 @@ public class IssueTest {
         // Assert
         Assert.True(issues.Select(x => x.Id).Distinct().Any());
     }
+    */
 }

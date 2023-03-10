@@ -1,12 +1,11 @@
 using WebApp.Data.Interfaces;
-using WebApp.Models;
 
 namespace WebApp.Data.Repositories;
 
 public class BaseRepository<T> : IRepository<T> where T : class, IGuid {
     protected List<T> _list = new();
 
-    public virtual void Create(T thing) {
+    public virtual void Create(T thing, string userId) {
         _list.Add(thing);
     }
 
@@ -15,7 +14,7 @@ public class BaseRepository<T> : IRepository<T> where T : class, IGuid {
     }
 
     public T? Read(Guid id) {
-        T? item = _list.Find(x => x.Id == id);
+        var item = _list.Find(x => x.Id == id);
         return item;
     }
 
@@ -24,7 +23,7 @@ public class BaseRepository<T> : IRepository<T> where T : class, IGuid {
     }
 
     public void Update(T thing) {
-        int index = _list.FindIndex(x => x.Id == thing.Id);
+        var index = _list.FindIndex(x => x.Id == thing.Id);
 
         if (index != -1) {
             _list[index] = thing;

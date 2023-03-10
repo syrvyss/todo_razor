@@ -5,7 +5,7 @@ using WebApp.Data.Interfaces;
 
 namespace WebApp.Data.Repositories;
 
-public class IssueRepository : BaseRepository<Issue>, IIssueRepository {
+public class UserRepository : BaseRepository<User>, IUserRepository {
     public void Delete(Guid id) {
         var collection = GetValues();
 
@@ -15,42 +15,41 @@ public class IssueRepository : BaseRepository<Issue>, IIssueRepository {
         collection?.DeleteOne(filter);
     }
 
-    public List<Issue> Get() {
+    public void Update(User user) {
+        var collection = GetValues();
+
+        var filter = Builders<BsonDocument>.Filter
+            .Eq(x => "_id", user.Id?.ToString());
+
+        var update = Builders<BsonDocument>.Update
+            .Set(x => x, user.ToBsonDocument());
+
+        collection?.UpdateOne(filter, update);
+    }
+
+    public void Create(User user, string id) {
+        var collection = GetValues();
+        var document = new BsonDocument(user.ToBsonDocument());
+        document["_id"] = id;
+
+        collection?.InsertOne(document);
+        Console.WriteLine(collection);
+    }
+
+    public User? Read(Guid id) {
+        var collection = GetValues();
+
+        var obj = collection.Find(x => x["_id"] == id);
+        return BsonSerializer.Deserialize<User>(obj.ToBsonDocument());
+    }
+
+    public List<User> Get() {
         var collection = GetValues();
 
         return collection
             .AsQueryable()
             .ToList()
-            .ConvertAll(x => BsonSerializer.Deserialize<Issue>(x.ToBsonDocument()));
-    }
-
-    public void Update(Issue issue) {
-        var collection = GetValues();
-
-        var filter = Builders<BsonDocument>.Filter
-            .Eq(x => "_id", issue.Id?.ToString());
-
-        var update = Builders<BsonDocument>.Update
-            .Set(x => x, issue.ToBsonDocument());
-
-        collection?.UpdateOne(filter, update);
-    }
-
-    public Issue? Read(Guid id) {
-        var collection = GetValues();
-
-        var obj = collection.Find(x => x["_id"] == id);
-        return BsonSerializer.Deserialize<Issue>(obj.ToBsonDocument());
-    }
-
-    public void Create(Issue issue, string userId) {
-        var collection = GetValues();
-        var document = new BsonDocument(issue.ToBsonDocument()) {
-            ["user"] = userId
-        };
-
-        collection?.InsertOne(document);
-        Console.WriteLine(userId);
+            .ConvertAll(x => BsonSerializer.Deserialize<User>(x.ToBsonDocument()));
     }
 
     private IMongoCollection<BsonDocument>? GetValues() {
@@ -63,7 +62,7 @@ public class IssueRepository : BaseRepository<Issue>, IIssueRepository {
         }
 
         var client = new MongoClient(connectionString);
-        var collection = client.GetDatabase("todo_razor").GetCollection<BsonDocument>("issue");
+        var collection = client.GetDatabase("todo_razor").GetCollection<BsonDocument>("user");
 
         return collection;
     }

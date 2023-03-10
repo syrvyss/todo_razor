@@ -1,12 +1,15 @@
-﻿namespace WebApp.Models;
+﻿using MongoDB.Bson.Serialization.Attributes;
+
+namespace WebApp.Models;
 
 public class User : IGuid {
     public User() {
         Id ??= Guid.NewGuid();
     }
 
-    public string Username { get; set; }
-    public string Password { get; set; }
+    [BsonElement("username")] public string Username { get; set; }
 
-    public Guid? Id { get; init; }
+    [BsonElement("password")] public string Password { get; set; }
+
+    [BsonElement("user_id")] public Guid? Id { get; init; }
 }

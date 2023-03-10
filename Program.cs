@@ -5,6 +5,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IIssueRepository, IssueRepository>();
+builder.Services.AddSingleton<IUserRepository, UserRepository>();
+builder.Services.AddSession(options => {
+    options.Cookie.Name = ".User.Session";
+    options.IdleTimeout = TimeSpan.FromSeconds(120);
+    options.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -23,5 +29,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.UseSession();
 
 app.Run();

@@ -17,8 +17,10 @@ public class NewIssueModel : PageModel {
     }
 
     public IActionResult OnPost(Issue Issue) {
+        var id = HttpContext.Session.GetString("id");
+
         if (ModelState.IsValid) {
-            _issueRepository.Create(Issue);
+            _issueRepository.Create(Issue, id);
 
             return RedirectToPage("/IssueBoard");
         }

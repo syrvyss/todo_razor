@@ -9,14 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="tests"/>
+    <Folder Include="tests" />
   </ItemGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="tests\WebApp.Test\obj\project.assets.json"/>
-    <_ContentIncludedByDefault Remove="tests\WebApp.Test\obj\project.packagespec.json"/>
-    <_ContentIncludedByDefault Remove="tests\WebApp.Test\obj\WebApp.Test.csproj.nuget.dgspec.json"/>
-    <_ContentIncludedByDefault Remove="tests\WebApp.Test\packages.config"/>
+    <_ContentIncludedByDefault Remove="tests\WebApp.Test\obj\project.assets.json" />
+    <_ContentIncludedByDefault Remove="tests\WebApp.Test\obj\project.packagespec.json" />
+    <_ContentIncludedByDefault Remove="tests\WebApp.Test\obj\WebApp.Test.csproj.nuget.dgspec.json" />
+    <_ContentIncludedByDefault Remove="tests\WebApp.Test\packages.config" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,8 +29,8 @@
     <Compile Update="tests\WebApp.Test\Usings.cs">
       <Link>tests\WebApp.Test2\Usings.cs</Link>
     </Compile>
-    <Compile Update="Pages\NewIssue.cs">
-      <DependentUpon>NewIssue.cshtml</DependentUpon>
+    <Compile Update="Pages\Login.cs">
+      <DependentUpon>Login.cshtml</DependentUpon>
     </Compile>
     <Compile Update="Pages\IssueBoard.cs">
       <DependentUpon>IssueBoard.cshtml</DependentUpon>
@@ -38,11 +38,17 @@
     <Compile Update="Pages\EditIssue.cs">
       <DependentUpon>EditIssue.cshtml</DependentUpon>
     </Compile>
+    <Compile Update="Pages\Register.cs">
+      <DependentUpon>Register.cshtml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\NewIssue.cs">
+      <DependentUpon>NewIssue.cshtml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MongoDB.Driver" Version="2.19.0"/>
-    <PackageReference Include="xunit" Version="2.4.2"/>
+    <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
+    <PackageReference Include="xunit" Version="2.4.2" />
   </ItemGroup>
 
 </Project>
